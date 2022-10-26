@@ -31,11 +31,11 @@ function App() {
     console.log(Date.now());
     const req = {
       checkout_id: Date.now(),
-      contact_email:"ygpalta@gmail.com",
+      contact_email:email.at,
       current_total_price: 135000,
       customer: {
         id: 12345,
-        email: "ygpalta@gmail.com",
+        email: email,
         first_name: "Yogesh",
         last_name: "Palta",
         name: "Yogesh Gopal Palta",
@@ -50,6 +50,14 @@ function App() {
           .then(res => navigate(`/checkout/${req.checkout_id}`));
   }
 
+  const [email, setEmail] = useState("");
+  const emailChange = (e) => {
+    console.log(e.target.value);
+    setEmail(e.target.value);
+    console.log(email);
+
+  }
+
 
   return (
     <div className="App">
@@ -59,6 +67,8 @@ function App() {
             // return (<h1>{element.name}</h1>)
             return <ItemCard Item={item}></ItemCard>
           })}
+          <label for="email">Enter your email: </label>
+          <input type="email" id="email" name="email" onChange={e =>  emailChange(e)}></input><br/>
           <button className="checkout-button" onClick={checkout}>Proceed to Checkout</button>
       </div>
       
