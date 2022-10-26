@@ -2,14 +2,21 @@ import logo from './logo.svg';
 import './App.css';
 import axios from "./axios.js";
 import { useState,useEffect } from 'react';
-import {ItemCard} from './components/ItemCard/ItemCard'
+import {ItemCard} from './components/ItemCard/ItemCard';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useNavigate
+} from "react-router-dom";
 // import { element } from 'prop-types';
 
 
 
 function App() {
 
-  
+  const navigate = useNavigate();
 
   const [items, setItems] = useState([]);
   useEffect(() =>{
@@ -40,7 +47,7 @@ function App() {
     }
     console.log(req);
     await axios.post('/checkout', req)
-          .then(res=> console.log(res));
+          .then(res => navigate(`/checkout/${req.checkout_id}`));
   }
 
 

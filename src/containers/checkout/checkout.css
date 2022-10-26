@@ -1,0 +1,36 @@
+.container {
+    margin-left: 20%;
+    margin-top: 10rem;
+}
+
+/* table {
+    margin-left: 3rem;
+} */
+
+td {
+    padding-left: 6rem;
+}
+
+.actionItems {
+    padding: 2rem;
+}
+
+.button {
+    width: 7rem;
+    margin: 1rem;
+    padding: 4px;
+}
+
+/* .button {
+    height: auto;
+    max-width: 25%;
+    border: 1px solid #F7F7F7;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin: 15px;
+    min-width: 100px;
+    background-color: #d8d8d8;
+    align-items: center;
+    color: #000000;
+    font-size: 1.2rem;
+  } */
