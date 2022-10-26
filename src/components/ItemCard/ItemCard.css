@@ -1,0 +1,213 @@
+.item-card {
+    width: 100%;
+    height: fit-content;
+    background-color: #FFFFFF;
+    border: 1px solid #DFE9F3;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.item-card:hover {
+    box-shadow: 2px 2px 7px rgba(64, 88, 112, 0.3);
+}
+
+.item-card .image-container {
+    height: auto;
+    max-width: 25%;
+    border: 1px solid #F7F7F7;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin: 15px;
+    min-width: 100px;
+}
+
+.item-card .desc-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.item-card .desc-container .item-name-location {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
+.item-card .desc-container .item-name-location .item-name {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #0B1C39;
+    display: flex;
+    text-align: left;
+    margin-right: 10px;
+}
+
+.item-card .desc-container .item-name-location .item-website {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    color: rgba(11, 28, 57, 0.8);
+    margin-top: 5px;
+    display: none;
+}
+
+.item-card .desc-container .item-name-location .item-location {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #8CA6C0;
+}
+
+.item-card .image-container .item-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.item-card .image-container .item-initials {
+    max-width: 100%;
+    height: auto;
+    min-height: 100px;
+    background-color: #0b1c38;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.item-card .desc-container .services-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item-card .desc-container .client-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+
+.item-card .desc-container .services-container .services {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding: 4px 8px;
+    height: 24px;
+    background: #F7FAFD;
+    border-radius: 26px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 12px;
+    color: rgba(11, 28, 57, 0.5);
+    text-transform: capitalize;
+    margin-right: 5px;
+    margin-top: 8px;
+}
+
+.item-card .desc-container .client-container .item-client-logo_name {
+    height: fit-content;
+    background: #eff6fb;
+    border-radius: 100px;
+    width: fit-content;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-top: 8px;
+}
+
+.item-card .desc-container .client-container .item-client-logo_name:hover {
+    background: #FFEAEB;
+}
+
+.item-card .desc-container .client-container .item-client-logo_name .item-client-logo {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+}
+
+.item-card .desc-container .client-container .item-client-logo_name .item-client-name {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 12px;
+    color: rgba(11, 28, 57, 0.5);
+    margin-left: 5px;
+}
+
+.item-card .desc-container .item-desc {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgba(11, 28, 57, 0.8);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    overflow: hidden;
+    margin: 15px 5px 15px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .item-card {
+        flex-direction: column;
+    }
+
+    .item-card .image-container {
+        min-width: 120px;
+        min-height: 120px;
+    }
+
+    .item-card .desc-container {
+        align-items: center;
+    }
+
+    .item-card .desc-container .item-name-location {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .item-card .desc-container .item-name-location .item-website {
+        display: flex;
+    }
+
+    .item-card .desc-container .item-name-location .item-location {
+        margin-top: 5px;
+    }
+
+    .item-card .desc-container .services-container {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .item-card .desc-container .client-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .item-card .desc-container .item-desc {
+        margin: 15px 30px 15px 30px;
+        text-align: center;
+        -webkit-line-clamp: 3;
+    }
+}
