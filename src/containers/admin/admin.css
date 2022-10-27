@@ -1,0 +1,18 @@
+.container {
+    margin-left: 20%;
+    margin-top: 15%;
+}
+
+td {
+    padding-left: 6rem;
+}
+
+.actionItems {
+    padding: 2rem;
+}
+
+.button {
+    width: 7rem;
+    margin: 1rem;
+    padding: 4px;
+}
