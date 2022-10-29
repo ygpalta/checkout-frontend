@@ -1,6 +1,7 @@
-.container {
-    margin-left: 20%;
-    margin-top: 15%;
+.admin-container {
+    /* margin-left: 3rem; */
+    margin-top: 2rem;
+    background-color: #eef0f54e;
 }
 
 td {

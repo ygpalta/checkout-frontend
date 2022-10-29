@@ -12,6 +12,8 @@ import {
   Link,
   useNavigate
 } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import './App.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
