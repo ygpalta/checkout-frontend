@@ -9,8 +9,6 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Link,
-  useNavigate
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import './App.scss';

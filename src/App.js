@@ -1,18 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import axios from "./axios.js";
 import { useState,useEffect } from 'react';
 import {ItemCard} from './components/ItemCard/ItemCard';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useNavigate
-} from "react-router-dom";
-// import { element } from 'prop-types';
-
-
+import { useNavigate } from "react-router-dom";
 
 function App() {
 

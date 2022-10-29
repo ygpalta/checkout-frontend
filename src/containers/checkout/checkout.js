@@ -1,19 +1,10 @@
 import React from 'react';
 import './checkout.css';
 import axios from "../../axios.js";
-import {
-    BrowserRouter,
-    Routes,
-    Route,
-    Link,
-    useNavigate,
-    useParams
-  } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
   function Checkout () {
     let { checkout_id} = useParams();
-    console.log(checkout_id);
-    const navigate = useNavigate();
 
     const checkoutAbandoned = async () =>{
       const req = {
@@ -41,14 +32,16 @@ import {
                 <p>Please complete the Payment to Order</p>
                 <h5>Order Summary:</h5>
                 <table>
-                  <tr>
-                    <td>Total Items:</td>
-                    <td>7</td>
-                  </tr>
-                  <tr>
-                    <td>Total Amout:</td>
-                    <td>₹ 135000</td>
-                  </tr>
+                  <tbody>
+                    <tr>
+                      <td>Total Items:</td>
+                      <td>7</td>
+                    </tr>
+                    <tr>
+                      <td>Total Amout:</td>
+                      <td>₹ 135000</td>
+                    </tr>
+                  </tbody>
                 </table>
                 <div className='actionItems'>
                   <button className='button' onClick={checkoutAbandoned}>Cancel</button>

@@ -9,16 +9,6 @@ import Table from 'react-bootstrap/Table';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Select from 'react-select';
-import {
-    BrowserRouter,
-    Routes,
-    Route,
-    Link,
-    useNavigate,
-    useParams
-  } from "react-router-dom";
-import { render } from '@testing-library/react';
-
   
 
   const options1 = [
@@ -47,33 +37,16 @@ import { render } from '@testing-library/react';
   function Admin () {
     const [intervals, setIntervals] = useState({});
     const [mails, setMails]= useState([]);
-    const [sent, setSent] = useState([]);
-    const [upcoming, setUpcoming] = useState([]);
 
     useEffect(() => {
         axios.get('/settings')
             .then(res => {
-                console.log(res.data);
                 setIntervals(res.data);
             });
 
         axios.get('/settings/getAbandoned')
               .then(res => {
                 setMails(res.data);
-                res.data.forEach( abandoned => {
-                  var curr = new Date();
-                  // if(abandoned.mail1 < curr)
-                  var temp = abandoned.checkout_id;
-                  console.log(temp);
-                  if(abandoned.checkout_id % 2){
-                    sent.push(temp);
-                    console.log("Sent");
-                  } else {
-                    upcoming.push(temp);
-                    console.log("upcoming");
-                  }
-
-                })
               });
         
     },[])
@@ -170,6 +143,7 @@ import { render } from '@testing-library/react';
                         <th>Cart Total Price</th>
                         <th>Email</th>
                         <th>Sent Date</th>
+                        <th>Sent Time</th>
                       </tr>
                     </thead>
 
@@ -177,9 +151,10 @@ import { render } from '@testing-library/react';
 
                       {mails.map(mail => {
                         return ( [mail.mail1, mail.mail2, mail.mail3].map(a => {
-                          console.log(a);
-                          if(1){
-                            return <tr>
+                          const d = new Date(a);
+                          const now = new Date(Date.now());
+                          if(now > d){
+                            return (<tr key = {d}>
                                       <td>
                                         {mail.customer.first_name}
                                       </td>
@@ -193,13 +168,17 @@ import { render } from '@testing-library/react';
                                       </td>
 
                                       <td>
-                                        {mail.contact_email}
+                                        {mail.customer.email}
                                       </td>
 
                                       <td>
-                                        {a}
+                                        {d.toLocaleDateString()}
                                       </td>
-                                </tr>
+
+                                      <td>
+                                        {d.toLocaleTimeString()}
+                                      </td>
+                                </tr>)
                           }
                         })
                         )
@@ -218,7 +197,8 @@ import { render } from '@testing-library/react';
                         <th>Checkout Id</th>
                         <th>Cart Total Price</th>
                         <th>Email</th>
-                        <th>Scheduled</th>
+                        <th>Scheduled Date</th>
+                        <th>Scheduled Time</th>
                       </tr>
                     </thead>
 
@@ -226,9 +206,10 @@ import { render } from '@testing-library/react';
 
                       {mails.map(mail => {
                         return ( [mail.mail1, mail.mail2, mail.mail3].map(a => {
-                          console.log(a);
-                          if(a){
-                            return <tr>
+                          const d = new Date(a);
+                          const now = new Date(Date.now());
+                          if(now < d){
+                            return (<tr key = {d}>
                                       <td>
                                         {mail.customer.first_name}
                                       </td>
@@ -242,13 +223,17 @@ import { render } from '@testing-library/react';
                                       </td>
 
                                       <td>
-                                        {mail.contact_email}
+                                        {mail.customer.email}
                                       </td>
 
                                       <td>
-                                        {a}
+                                        {d.toLocaleDateString()}
                                       </td>
-                                </tr>
+
+                                      <td>
+                                        {d.toLocaleTimeString()}
+                                      </td>
+                                </tr>)
                           }
                         })
                         )
