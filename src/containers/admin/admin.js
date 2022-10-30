@@ -37,6 +37,7 @@ import Select from 'react-select';
   function Admin () {
     const [intervals, setIntervals] = useState({});
     const [mails, setMails]= useState([]);
+    const [recoveredOrders, setRecoveredOrders] = useState([]);
 
     useEffect(() => {
         axios.get('/settings')
@@ -48,6 +49,11 @@ import Select from 'react-select';
               .then(res => {
                 setMails(res.data);
               });
+
+        axios.get('/orders/recovered')
+              .then(res =>{
+                setRecoveredOrders(res.data);
+              } )
         
     },[])
 
@@ -239,6 +245,33 @@ import Select from 'react-select';
                         )
                       })}
 
+                    </tbody>
+                  </Table>
+                </Tab>
+                <Tab eventKey="recovered" title="Recovered Orders">             
+                  <Table striped bordered hover size="sm">
+                    <thead>
+                      <tr>
+                        <th>Customer</th>
+                        <th>Email</th>
+                        <th>Order Date</th>
+                        <th>Order Time</th> 
+                        <th>Payment ID</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {recoveredOrders.map(order => {
+                        const d = new Date(order.placed);
+                        return (<tr key={order}>
+                                  <td>{order.customer_name}</td>
+                                  <td>{order.email}</td>
+                                  <td>{d.toLocaleDateString()}</td>
+                                  <td>{d.toLocaleTimeString()}</td>
+                                  <td>{order.payment_id}</td>
+                                </tr>
+                                )
+                      })
+                      }
                     </tbody>
                   </Table>
                 </Tab>
