@@ -20,8 +20,8 @@
   "scripts": {
     "start": "react-scripts start",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-    "build": "BUILD_PATH=./public react-scripts build",
+    "eject": "react-scripts eject",
+    "build": "BUILD_PATH=./public react-scripts build"
   },
   "eslintConfig": {
     "extends": [
